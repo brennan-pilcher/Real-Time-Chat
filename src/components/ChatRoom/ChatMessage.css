@@ -1,7 +1,39 @@
 .sent {
+    align-self: flex-end;
+    margin: 5px 0 5px 0;
+}
+
+.sent-message {
+    float: left;
     text-align: right;
+    background-color: #80ED99;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+}
+
+.sent-image {
+    width: 32px;
+    border-radius: 16px;
+    float: right;
+    margin: 0 5px 0 5px;
 }
 
 .received {
+    align-self: flex-start;
+    margin: 5px 0 5px 0;
+}
+
+.received-message {
+    float: right;
     text-align: left;
+    background-color: #6CD4FF;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+}
+
+.received-image {
+    width: 32px;
+    border-radius: 16px;
+    float: left;
+    margin: 0 5px 0 5px;
 }

@@ -8,6 +8,7 @@ import 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import SignIn from './components/SignIn/SignIn';
 import ChatRoom from './components/ChatRoom/ChatRoom';
+import SignOut from './components/SignOut/SignOut';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDi_lxSLjiaMSY5_-otw2Lx4urkn_kbhTk",
@@ -28,8 +29,9 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-
+      <header className="header">
+        <div className="title">Real-time Chatroom</div>
+        <SignOut auth={auth} />
       </header>
 
       <section>

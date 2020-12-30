@@ -1,4 +1,5 @@
 import React from 'react';
+import './SignIn.css';
 
 
 import firebase from 'firebase/app';
@@ -14,7 +15,7 @@ const SignIn = (props: SignInProps) => {
         props.auth.signInWithPopup(provider)
     }
 
-    return <button onClick={signInWithGoogle}>Sign in with Google</button>;
+    return <button className="signInButton" onClick={signInWithGoogle}>Sign in with Google</button>;
 
 }
 

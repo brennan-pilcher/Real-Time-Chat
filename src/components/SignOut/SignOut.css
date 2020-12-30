@@ -1,0 +1,10 @@
+.signOutButton {
+    padding: 8px;
+    background-color: #3BC14A;
+    color: white;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #3BC14A;
+    border-style: solid;
+    outline: none;
+}

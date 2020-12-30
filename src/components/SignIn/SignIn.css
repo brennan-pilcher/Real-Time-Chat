@@ -1,0 +1,12 @@
+.signInButton {
+    padding: 8px;
+    background-color: #3BC14A;
+    color: white;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #3BC14A;
+    border-style: solid;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 16px;
+    outline: none;
+}
