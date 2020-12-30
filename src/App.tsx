@@ -34,9 +34,7 @@ function App() {
         <SignOut auth={auth} />
       </header>
 
-      <section>
-        {user ? <ChatRoom auth={auth} firestore={firestore} /> : <SignIn auth={auth} />}
-      </section>
+      {user ? <ChatRoom auth={auth} firestore={firestore} /> : <SignIn auth={auth} />}
     </div>
   );
 }

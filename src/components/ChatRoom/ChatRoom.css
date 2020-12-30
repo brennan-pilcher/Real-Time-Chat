@@ -7,13 +7,6 @@ html {
     opacity: .5;
 }
 
-form {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    padding: 16px 0 16px 0;
-}
-
 input {
     border-radius: 8px;
     border-color: #5D576B;
@@ -27,8 +20,16 @@ input {
 }
 
 .messages {
+    flex-grow: 1;
+    overflow: auto;
+
     display: flex;
     flex-direction: column;
+}
+
+.chatBox {
+    width: 100%;
+    padding: 16px 0 16px 0;
 }
 
 .sendButton {

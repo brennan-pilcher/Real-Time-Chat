@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -24,10 +24,19 @@ interface Chat {
 const ChatRoom = (props: ChatRoomProps) => {
 
     const messagesRef = props.firestore.collection('messages');
-    const query = messagesRef.orderBy('createdAt').limit(25);
+    const query = messagesRef.orderBy('createdAt');
     const [inputText, setInputText] = useState('');
 
     const [messages]: [Chat[] | undefined, boolean, Error | undefined] = useCollectionData(query, {idField: 'id'});
+
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages]);
+
+    const scrollToBottom = () => {
+        const messagesDiv = document.getElementById("messages");
+        if (messagesDiv) messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
 
     const sendMessage = async (e: FormEvent) => {
         e.preventDefault();
@@ -39,6 +48,7 @@ const ChatRoom = (props: ChatRoomProps) => {
                 uid: props.auth.currentUser?.uid,
                 photoURL: props.auth.currentUser?.photoURL
             })
+            .then(() => scrollToBottom())
             .catch(reason => alert(reason));
         }
 
@@ -46,11 +56,11 @@ const ChatRoom = (props: ChatRoomProps) => {
     }
 
     return <>
-        <div className="messages">
+        <div id="messages" className="messages">
             {messages && messages.map(message => <ChatMessage key={message.id} message={message.text} sent={message.uid === props.auth.currentUser?.uid} photoURL={message.photoURL}/>)}
         </div>
 
-        <form onSubmit={sendMessage}>
+        <form className="chatBox" onSubmit={sendMessage}>
             <input placeholder="Enter your message..." value={inputText} onChange={e => setInputText(e.target.value)} />
             <button className="sendButton" type="submit">Send</button>
         </form>
